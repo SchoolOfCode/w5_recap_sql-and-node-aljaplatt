@@ -68,4 +68,7 @@ app.get("/cats/:id", function (req, res) {
   });
 });
 
+app.get("/cats", function (reg, res) {
+  const name = req.query.name;
+});
 export default app;

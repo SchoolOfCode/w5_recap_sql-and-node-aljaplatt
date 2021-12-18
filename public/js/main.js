@@ -42,7 +42,7 @@ function handleClick(event) {
 async function getCats() {
   const response = await fetch(`${url}/cats`);
   const { payload } = await response.json();
-  recipesSection.innerHTML = "";
+  catsSection.innerHTML = "";
   console.log(payload);
   payload.forEach(renderCat);
 }
