@@ -50,4 +50,22 @@ Test this in your browser.
 "get-cats" to show the data on the front end.
 */
 
+// get all the cats
+app.get("/cats", function (req, res) {
+  res.json({
+    success: "true",
+    message: "All the cats",
+    data: cats,
+  });
+});
+
+app.get("/cats/:id", function (req, res) {
+  const id = Number(req.params.id);
+  res.json({
+    success: "true",
+    message: `Cat with id:${id}`,
+    data: cats[id - 1],
+  });
+});
+
 export default app;
