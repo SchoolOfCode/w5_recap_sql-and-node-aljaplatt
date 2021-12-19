@@ -1,4 +1,4 @@
-const url = "/api";
+const url = "";
 
 const catsSection = document.querySelector("#cats");
 const getCatsButton = document.querySelector("#get-cats");

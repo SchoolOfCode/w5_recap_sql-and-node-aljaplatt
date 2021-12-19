@@ -69,19 +69,6 @@ app.get("/cats", function (req, res) {
   });
 });
 
-// app.get("/cats", function (req, res) {
-//   console.log(req.query);
-//   let result;
-
-//
-//   // const name = req.query.name;
-//   // res.json({
-//   //   success: "true",
-//   //   message: `Cat with id:${id}`,
-//   //   data: cats[id - 1],
-//   // });
-// });
-
 app.get("/cats/:id", function (req, res) {
   const id = Number(req.params.id);
   res.json({
