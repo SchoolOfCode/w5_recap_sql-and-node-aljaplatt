@@ -20,7 +20,7 @@ app.get("/", function (req, res, next) {
   res.render("index", { title: "Books" });
 });
 
-const cats = [
+export const cats = [
   {
     id: 1,
     name: "Tony",
