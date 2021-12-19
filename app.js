@@ -50,14 +50,37 @@ Test this in your browser.
 "get-cats" to show the data on the front end.
 */
 
-// get all the cats
+// get all the cats and query by name
 app.get("/cats", function (req, res) {
+  // console.log(req.query);
+  let result;
+  if (req.query.name !== undefined) {
+    let search = req.query.name;
+    result = cats.filter((cat) => {
+      return cat.name.toLowerCase().includes(search.toLowerCase());
+    });
+  } else {
+    result = cats;
+  }
   res.json({
     success: "true",
-    message: "All the cats",
-    data: cats,
+    message: "The cat/s you requested:",
+    data: result,
   });
 });
+
+// app.get("/cats", function (req, res) {
+//   console.log(req.query);
+//   let result;
+
+//
+//   // const name = req.query.name;
+//   // res.json({
+//   //   success: "true",
+//   //   message: `Cat with id:${id}`,
+//   //   data: cats[id - 1],
+//   // });
+// });
 
 app.get("/cats/:id", function (req, res) {
   const id = Number(req.params.id);
@@ -68,7 +91,4 @@ app.get("/cats/:id", function (req, res) {
   });
 });
 
-app.get("/cats", function (reg, res) {
-  const name = req.query.name;
-});
 export default app;
