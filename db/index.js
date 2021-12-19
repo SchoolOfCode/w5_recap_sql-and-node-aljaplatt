@@ -9,6 +9,7 @@ const pool = new pg.Pool({
   ssl: { rejectUnauthorized: false },
 });
 
+// sqlString from createTable handed to query function in index.js -- as first argument (text)
 export default function query(text, params) {
   return pool.query(text, params);
 }
