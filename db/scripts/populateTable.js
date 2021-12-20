@@ -1,5 +1,5 @@
 import query from "../index.js";
-import cats from "../../app.js";
+import { cats } from "../../app.js";
 
 async function populateCatsTable() {
   for (let i = 0; i < cats.length; i++) {
