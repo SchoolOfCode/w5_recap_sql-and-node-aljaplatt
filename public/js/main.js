@@ -39,14 +39,6 @@ function handleClick(event) {
   getCats();
 }
 
-async function getCats() {
-  const response = await fetch(`${url}/cats`);
-  const { payload } = await response.json();
-  catsSection.innerHTML = "";
-  console.log(payload);
-  payload.forEach(renderCat);
-}
-
 function renderCat(cat) {
   const article = createCatArticle(cat);
   catsSection.appendChild(article);
@@ -66,4 +58,11 @@ function createCatArticle({ catName, humanName, hobby }) {
   return article;
 }
 
-getCats();
+// getCats();
+async function getCats() {
+  const response = await fetch(`${url}/cats`);
+  const { payload } = await response.json();
+  catsSection.innerHTML = "";
+  console.log(payload);
+  payload.forEach(renderCat);
+}
