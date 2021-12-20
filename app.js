@@ -4,6 +4,8 @@ import path, { dirname } from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
+import router from "./routes/cats.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -15,12 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/routes/cats.js", router);
+
 /** DO NOT CHANGE THIS ROUTE - it serves our front-end */
 app.get("/", function (req, res, next) {
   res.render("index", { title: "Books" });
 });
 
-const cats = [
+export const cats = [
   {
     id: 1,
     name: "Tony",
